@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:uranium="http://schemas.enisn-projects.io/dotnet/maui/uraniumui"
+             xmlns:material="http://schemas.enisn-projects.io/dotnet/maui/uraniumui/material"
+             xmlns:vm="clr-namespace:projectFr.ViewModdels"
+             x:Class="projectFr.Screnns.LockPage"
+             Shell.NavBarIsVisible="False"
+             Title="LockPage">
+    <ContentPage.BindingContext>
+        <vm:LockViewModdel></vm:LockViewModdel>
+    </ContentPage.BindingContext>
+    <VerticalStackLayout BackgroundColor="Bisque" Padding="10">
+        <Image Source="din.png" Margin="90,90,90,30"></Image>
+        <Label Text="Welcome" FontSize="34" FontAttributes="Bold" HorizontalOptions="CenterAndExpand" Margin="0,0,0,20"></Label>
+        <Label Text="Tap to Login With Fingerprint" FontSize="20" HorizontalOptions="CenterAndExpand"></Label>
+        <ImageButton Source="fingerprint.svg" WidthRequest="50" HeightRequest="50" Margin="25"
+                     Command="{Binding FingerClicCommand}"></ImageButton>
+        <Label Text="Or,Enter 4 Digit Login PIN" FontSize="20" HorizontalOptions="CenterAndExpand"></Label>
+        <Entry HorizontalTextAlignment="Center" Keyboard="Numeric" Margin="40,0" FontSize="20" MaxLength="4"
+               TextChanged="Entry_TextChanged"></Entry>
+    </VerticalStackLayout>
+</ContentPage>
