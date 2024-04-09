@@ -22,7 +22,7 @@
                 Toggled="bio_Toggled"></Switch>
             </StackLayout>
             <Label Text="Licenes Key" FontSize="20" FontAttributes="Bold" ></Label>
-            <Editor x:Name="LicEN" FontSize="16" TextChanged="LicEN_Completed"></Editor>
+            <Entry x:Name="LicEN" FontSize="16" TextChanged="LicEN_Completed" Keyboard="Text"></Entry>
             <Label Text="Enter New Pin" FontSize="20" FontAttributes="Bold" ></Label>
             <Entry x:Name="PINE" FontSize="18" Keyboard="Numeric" MaxLength="4" TextChanged="Entry_TextChanged"></Entry>
         </VerticalStackLayout>

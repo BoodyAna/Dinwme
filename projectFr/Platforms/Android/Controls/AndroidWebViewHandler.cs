@@ -17,6 +17,12 @@ namespace projectFr.Platforms.Android.Controls
 
             platformView.Settings.JavaScriptEnabled = true;
             base.ConnectHandler(platformView);
+#if ANDROID
+            Microsoft.Maui.Handlers.WebViewHandler.Mapper.Add("WebChromeClient", (handler, view) =>
+            {
+                handler.PlatformView.SetWebChromeClient(new MyWebChromeClient());
+            });
+#endif
         }
     }
 }

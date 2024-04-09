@@ -21,10 +21,17 @@ namespace projectFr
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 })
             .UseMauiCompatibility()
+            .ConfigureMauiHandlers((handlers) =>
+            {
+#if ANDROID
+    handlers.AddCompatibilityRenderer(typeof(WebView), typeof(Platforms.Android.Renderers.UserAgentWebViewRenderer));
+#endif
+            })
     .ConfigureMauiHandlers(x =>
     {
 #if ANDROID
         x.AddHandler<WebView, Platforms.Android.Controls.AndroidWebViewHandler>();
+
 #endif
     });
             Routing.RegisterRoute("/Setting",typeof(SettingsPage));

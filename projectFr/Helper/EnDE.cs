@@ -45,17 +45,18 @@ namespace projectFr.Helper
                     {
                         aes.Key = sha256Key;
                         aes.Mode = CipherMode.ECB;
-                        aes.Padding = PaddingMode.PKCS7;
-                        var dataBytes = Convert.FromBase64String(data);
+                        aes.Padding = PaddingMode.PKCS7;   
                         try
                         {
-                            ICryptoTransform decryptor = aes.CreateDecryptor();
+                        var dataBytes = Convert.FromBase64String(data);
+                        ICryptoTransform decryptor = aes.CreateDecryptor();
                             decryptedBytes = decryptor.TransformFinalBlock(dataBytes, 0, dataBytes.Length);
                         }
                         finally
                         {
-                            aes.Clear();
-                        }
+                        aes.Clear();
+                        
+                    }
                     }
                 }
                 return Encoding.UTF8.GetString(decryptedBytes);

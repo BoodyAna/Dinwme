@@ -8,9 +8,11 @@ using CommunityToolkit.Mvvm.Input;
 using Plugin.Fingerprint.Abstractions;
 using Plugin.Fingerprint;
 using projectFr.Constant;
+#if ANDROID
 using Android.Text;
 using Android.Content;
 using Android.Locations;
+#endif
 
 namespace projectFr.ViewModdels
 {
@@ -57,10 +59,13 @@ namespace projectFr.ViewModdels
             // check if gps enaable or disable 
             bool IsGpsEnable()
             {
+#if ANDROID
                 LocationManager locationManager = (LocationManager)Android.App.Application.Context.GetSystemService(Context.LocationService);
                 return locationManager.IsProviderEnabled(LocationManager.GpsProvider);
+#endif
+                return true;
             }
         } 
-        #endregion
+#endregion
     }
 }
