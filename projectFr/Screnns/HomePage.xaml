@@ -10,7 +10,9 @@
         <vm:HomeViewModdle></vm:HomeViewModdle>
     </ContentPage.BindingContext>
     <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Login" Command="{Binding onLoginCommand}"></ToolbarItem>
         <ToolbarItem IconImageSource="gear.svg" Command="{Binding onClickCommand}"></ToolbarItem>
+        
     </ContentPage.ToolbarItems>
     <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand">
         <WebView Source="https://www.dinewme.com/" VerticalOptions="FillAndExpand"></WebView>

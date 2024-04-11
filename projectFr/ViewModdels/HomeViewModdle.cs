@@ -29,7 +29,16 @@ namespace projectFr.ViewModdels
         {
             Shell.Current.GoToAsync("/Setting");
         }
+        [RelayCommand]
+        async void onLogin()
+        {
+            bool isavalible = await Launcher.Default.TryOpenAsync("https://www.dinewme.com/login");
 
+            if (isavalible)
+            {
+                await Launcher.Default.OpenAsync("https://www.dinewme.com/login");
+            }
+        }
         public async void GetCurrentLocation()
         {
             try
